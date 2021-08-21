@@ -60,7 +60,7 @@ document.getElementById('delivery-pay').addEventListener('click', function () {
 // ================= Promo Button Event ==============//
 
 document.getElementById('apply-promo').addEventListener('click', function () {
-    applyCode()
+    applyCode();
 })
 
 
