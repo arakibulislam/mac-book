@@ -1,16 +1,12 @@
 // ================ For Memory , Storage & Delivery button Function ================ //
 
-function totalCost(product, product1, product2, price) {
+function totalCost(product,price) {
     const cost = document.getElementById(product + '-cost');
-    document.getElementById('best-price');
-    document.getElementById('total-cost');
-    document.getElementById(product1 + '-cost');
-    document.getElementById(product2 + '-cost');
     cost.innerText = price;
-    total();
+    totalPrice();
 }
 
-function total(){
+function totalPrice(){
     const bestPrice = document.getElementById('best-price');
     const memoryPrice = document.getElementById('memory-cost');
     const storagePrice = document.getElementById('storage-cost');
@@ -19,41 +15,40 @@ function total(){
     const total = document.getElementById('total'); 
     totalPrice.innerText = parseInt(bestPrice.innerText)+parseInt(memoryPrice.innerText)+parseInt(storagePrice.innerText)+parseInt(deliveryPrice.innerText);
     total.innerText = totalPrice.innerText;
-
 }
 
 // ============= Memory Button Event ===============//
 
 document.getElementById('memory-8gb').addEventListener('click', function () {
-    totalCost('memory', 'storage','delivery', 0);
+    totalCost('memory', 0);
 })
 
 document.getElementById('memory-16gb').addEventListener('click', function () {
-    totalCost('memory', 'storage','delivery', 180);
+    totalCost('memory', 180);
 })
 
 // =============== Storage Button Event ============== //
 
 document.getElementById('storage-256gb').addEventListener('click', function () {
-    totalCost('storage', 'memory','delivery', 0);
+    totalCost('storage', 0);
 })
 
 document.getElementById('storage-512gb').addEventListener('click', function () {
-    totalCost('storage', 'memory','delivery', 100);
+    totalCost('storage',100);
 })
 
 document.getElementById('storage-1tb').addEventListener('click', function () {
-    totalCost('storage', 'memory','delivery', 180);
+    totalCost('storage',180);
 })
 
 // ================ Delivery Button Event ============== //
 
 document.getElementById('delivery-free').addEventListener('click', function () {
-    totalCost( 'delivery','storage', 'memory', 0);
+    totalCost( 'delivery',0);
 })
 
 document.getElementById('delivery-pay').addEventListener('click', function () {
-    totalCost( 'delivery','storage', 'memory', 20);
+    totalCost( 'delivery',20);
 })
 
 // ================= Promo Button Event ==============//
