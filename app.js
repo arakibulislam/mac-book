@@ -2,25 +2,24 @@
 
 function totalCost(product, product1, product2, price) {
     const cost = document.getElementById(product + '-cost');
-    const bestPrice = document.getElementById('best-price');
-    const totalPrice = document.getElementById('total-cost');
-    const storage = document.getElementById(product1 + '-cost');
-    const delivery = document.getElementById(product2 + '-cost');
-    const total = document.getElementById('total');
+    document.getElementById('best-price');
+    document.getElementById('total-cost');
+    document.getElementById(product1 + '-cost');
+    document.getElementById(product2 + '-cost');
     cost.innerText = price;
-    totalPrice.innerText = parseInt(cost.innerText) + parseInt(bestPrice.innerText) + parseInt(storage.innerText) + parseInt(delivery.innerText)
-    total.innerText = totalPrice.innerText;
+    total();
 }
 
-// =================== for Pomo Button Function =============== //
+function total(){
+    const bestPrice = document.getElementById('best-price');
+    const memoryPrice = document.getElementById('memory-cost');
+    const storagePrice = document.getElementById('storage-cost');
+    const deliveryPrice = document.getElementById('delivery-cost');
+    const totalPrice = document.getElementById('total-cost');
+    const total = document.getElementById('total'); 
+    totalPrice.innerText = parseInt(bestPrice.innerText)+parseInt(memoryPrice.innerText)+parseInt(storagePrice.innerText)+parseInt(deliveryPrice.innerText);
+    total.innerText = totalPrice.innerText;
 
-function applyCode(){
-    const code = document.getElementById('promo-code')
-    if(code.value == 'stevekaku'){
-        const total = document.getElementById('total');
-    total.innerText = parseInt(total.innerText) -(parseInt(total.innerText)/5);
-    }
-    code.value = '';
 }
 
 // ============= Memory Button Event ===============//
@@ -60,7 +59,12 @@ document.getElementById('delivery-pay').addEventListener('click', function () {
 // ================= Promo Button Event ==============//
 
 document.getElementById('apply-promo').addEventListener('click', function () {
-    applyCode();
+    const code = document.getElementById('promo-code')
+    if(code.value == 'stevekaku'){
+        const total = document.getElementById('total');
+    total.innerText = parseInt(total.innerText) -(parseInt(total.innerText)/5);
+    }
+    code.value = '';
 })
 
 
